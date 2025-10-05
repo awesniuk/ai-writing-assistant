@@ -20,6 +20,7 @@ flowchart TD
     D --> E[Augment Prompt]
     E --> F[LLM Generation (LLaMA 2 + LoRA)]
     F --> G[Styled Response]
+```
 
 ---
 
@@ -91,7 +92,7 @@ accelerate config
 
 # 6. Run the FastAPI server
 uvicorn backend.main:app --reload
-
+```
 ---
 
 ## 🧪 Example Use Cases
@@ -113,7 +114,7 @@ Training data should be formatted as JSONL with the structure:
 {"instruction": "...", "input": "...", "output": "..."}
 
 Fine-tuned model weights are saved in /fine_tuning/lora_output/.
-
+```
 ---
 
 ## 📄 License
