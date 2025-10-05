@@ -1,0 +1,35 @@
+import sqlite3
+from datetime import datetime
+from uuid import uuid4
+
+DB_PATH = "data/database.db"
+
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS documents (
+        id TEXT PRIMARY KEY,
+        title TEXT,
+        content TEXT,
+        version INTEGER,
+        created_at TEXT
+    )
+    """)
+    conn.commit()
+    conn.close()
+
+def save_document_to_db(title, content, version=1):
+    doc_id = str(uuid4())
+    created_at = datetime.utcnow().isoformat()
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO documents (id, title, content, version, created_at)
+        VALUES (?, ?, ?, ?, ?)
+    """, (doc_id, title, content, version, created_at))
+    conn.commit()
+    conn.close()
+
+    return doc_id
