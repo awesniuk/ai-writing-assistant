@@ -12,7 +12,7 @@ This application combines a fine-tuned LLaMA 2 model with a RAG pipeline to prod
 
 ## ⚙️ Architecture
 
-```mermaid
+```
 flowchart TD
     A[User Input] --> B[Embed Input Query]
     B --> C[Semantic Search (Qdrant)]
@@ -25,7 +25,6 @@ flowchart TD
 ---
 
 ## 🚀 Tech Stack
-
 
 | Component           | Description                                                    |
 |---------------------|----------------------------------------------------------------|
@@ -42,27 +41,28 @@ flowchart TD
 
 ## 📂 Project Structure
 
+```
 ai-writing-assistant/
-├── backend/
-│   ├── db.py                # Database connection and logic
-│   ├── main.py              # FastAPI entry point
-│   ├── model.py             # LLM model loading and inference
-│   ├── rag.py               # RAG pipeline logic (retrieval + augmentation)
-│   └── schemas.py           # Pydantic models for API I/O
-├── data/
-│   └── database.db          # SQLite database
-├── fine_tuning/
-│   ├── config.py            # Training configuration
-│   ├── data/
-│   │   └── author_snippets.json  # Raw snippets used for fine-tuning
-│   ├── dataset.jsonl        # Preprocessed training dataset
-│   ├── lora_output/         # LoRA fine-tuned model artifacts
-│   ├── test_training_args.py# Unit test for training config
-│   └── train_lora.py        # Script to fine-tune LLaMA using PEFT + LoRA
-├── frontend/                # Frontend code (to be implemented)
-├── requirements.txt         # Python dependencies
-└── README.md                # Project documentation
-
+├── backend/  
+│   ├── db.py               # Database connection and logic  
+│   ├── main.py             # FastAPI entry point  
+│   ├── model.py            # LLM model loading and inference  
+│   ├── rag.py              # RAG pipeline logic (retrieval + augmentation)  
+│   └── schemas.py          # Pydantic models for API I/O  
+├── data/  
+│   └── database.db         # SQLite database  
+├── fine_tuning/  
+│   ├── config.py           # Training configuration  
+│   ├── data/  
+│   │   └── author_snippets.json     # Raw snippets used for fine-tuning  
+│   ├── dataset.jsonl       # Preprocessed training dataset  
+│   ├── lora_output/        # LoRA fine-tuned model artifacts  
+│   ├── test_training_args.py   # Unit test for training config  
+│   └── train_lora.py       # Script to fine-tune LLaMA using PEFT + LoRA  
+├── frontend/               # Frontend code (to be implemented)  
+├── requirements.txt        # Python dependencies  
+└── README.md               # Project documentation
+```
 ---
 
 ## 🔧 Local Setup
